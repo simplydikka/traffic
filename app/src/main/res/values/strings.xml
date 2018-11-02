@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Signs</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_home_screen">homeScreen</string>
+    <string name="tab_text_1">КАТЕГОРИИ</string>
+    <string name="tab_text_2">ЗАПАЗЕНИ</string>
+    <string name="tab_text_3">ВСИЧКИ</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="title_activity_welcome_screen">welcomeScreen</string>
+    <string name="welcomeScreenText01">Бърз и лесен достъп дори без интернет до информация за всички пътни знаци</string>
+    <string name="welcomeScreenTitle01">Офлайн каталог</string>
+
+
+    <string name="next">Напред</string>
+    <string name="skip">Назад</string>
+    <string name="start">Начало</string>
+
+    <string name="slide_1_title">Офлайн Каталог</string>
+    <string name="slide_1_desc">Бърз и лесен достъп дори без интернет до информация за всички пътни знаци</string>
+
+    <string name="slide_2_title">Лесна Навигация</string>
+    <string name="slide_2_desc">Отвори каталог с всички знаци, или търси информация по категории</string>
+
+    <string name="slide_3_title">Списъци за Бърз Достъп</string>
+    <string name="slide_3_desc">Отдели и класифицирай знаците, които те затрудняват, за бърз достъп и преговор</string>
+
+</resources>
