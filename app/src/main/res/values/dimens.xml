@@ -17,6 +17,7 @@
 
     <dimen name="welcomeText">16sp</dimen>
     <dimen name="welcomeTitle">18sp</dimen>
+    <dimen name="tab1_card_height">330dp</dimen>
 
 
 </resources>
