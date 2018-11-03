@@ -27,5 +27,6 @@
 
     <string name="slide_3_title">Списъци за Бърз Достъп</string>
     <string name="slide_3_desc">Отдели и класифицирай знаците, които те затрудняват, за бърз достъп и преговор</string>
+    <string name="title_activity_getcodefromhere">getcodefromhere</string>
 
 </resources>
