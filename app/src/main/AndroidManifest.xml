@@ -22,6 +22,18 @@
             android:name=".homeScreen"
             android:label="@string/title_activity_home_screen"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GroupA"
+            android:label="GroupA"
+            android:parentActivityName=".homeScreen"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".GroupASigns"
+            android:label="GroupASigns"
+            android:parentActivityName=".GroupA"
+            android:theme="@style/AppTheme.ActionBar" />
+
     </application>
 
 </manifest>

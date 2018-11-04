@@ -1,10 +1,12 @@
 package com.example.android.signs;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.security.acl.Group;
 
 public class Tab1Categories extends Fragment {
     private static final String TAG = "Tab1Categories";
@@ -56,15 +60,19 @@ public class Tab1Categories extends Fragment {
     private TextView mCardTitleR;
     private TextView mCardDescriptionR;
 
+    private CardView mCardGroupA;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //inflates the xml fragment
-        View view = inflater.inflate(R.layout.tab1_categories,container,false);
+        View view = inflater.inflate(R.layout.tab1_categories, container, false);
 
-        //A: declare the image, title and description in onCreate
+        //declare the clickable card
+        mCardGroupA = (CardView) view.findViewById(R.id.card_group_a);
+
+        //declare the image, title and description in onCreate
         mCardDescriptionA = (TextView) view.findViewById(R.id.cardDescriptionA);
         mCardDescriptionB = (TextView) view.findViewById(R.id.cardDescriptionB);
         mCardDescriptionV = (TextView) view.findViewById(R.id.cardDescriptionV);
@@ -75,10 +83,6 @@ public class Tab1Categories extends Fragment {
         mCardDescriptionT = (TextView) view.findViewById(R.id.cardDescriptionT);
         mCardDescriptionO = (TextView) view.findViewById(R.id.cardDescriptionO);
         mCardDescriptionR = (TextView) view.findViewById(R.id.cardDescriptionR);
-
-
-
-
 
 
         mCardTitleA = (TextView) view.findViewById(R.id.cardTitleA);
@@ -93,8 +97,6 @@ public class Tab1Categories extends Fragment {
         mCardTitleR = (TextView) view.findViewById(R.id.cardTitleR);
 
 
-
-
         mCardImageA = (ImageView) view.findViewById(R.id.cardImageA);
         mCardImageB = (ImageView) view.findViewById(R.id.cardImageB);
         mCardImageV = (ImageView) view.findViewById(R.id.cardImageV);
@@ -105,9 +107,6 @@ public class Tab1Categories extends Fragment {
         mCardImageT = (ImageView) view.findViewById(R.id.cardImageT);
         mCardImageO = (ImageView) view.findViewById(R.id.cardImageO);
         mCardImageR = (ImageView) view.findViewById(R.id.cardImageR);
-
-
-
 
 
         Resources resources = getResources();
@@ -123,7 +122,6 @@ public class Tab1Categories extends Fragment {
         mCardImageR.setImageDrawable(resources.getDrawable(R.drawable.icon));
 
 
-
         //A: set the title to the text view
         mCardTitleA.setText(getString(R.string.grupa_a_title));
         mCardTitleB.setText(getString(R.string.grupa_b_title));
@@ -135,9 +133,6 @@ public class Tab1Categories extends Fragment {
         mCardTitleT.setText(getString(R.string.grupa_t_title));
         mCardTitleO.setText(getString(R.string.grupa_o_title));
         mCardTitleR.setText(getString(R.string.grupa_r_title));
-
-
-
 
 
         //A: set the description to the text view
@@ -152,11 +147,18 @@ public class Tab1Categories extends Fragment {
         mCardDescriptionO.setText(getString(R.string.grupa_o_description));
         mCardDescriptionR.setText(getString(R.string.grupa_r_description));
 
+        //set onClick event for the card to lead to second activity
 
+        mCardGroupA.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Прехвърляне в Група А", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), GroupA.class);
+                startActivity(intent);
 
-
-
+            }
+        });
 
         return view;
     }

@@ -48,5 +48,6 @@
     <string name="grupa_o_description">Други средства за сигнализиране</string>
     <string name="grupa_r_description">Общи правила за пътните знаци</string>
     <string name="grupa_r_title">Правила</string>
+    <string name="title_activity_group_asigns">GroupASigns</string>
 
 </resources>

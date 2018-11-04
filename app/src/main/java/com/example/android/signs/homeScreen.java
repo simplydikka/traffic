@@ -1,5 +1,6 @@
 package com.example.android.signs;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -45,7 +46,7 @@ public class homeScreen extends AppCompatActivity {
     }
 
     //creates a sections pager adapter and adds the fragments to the sections pager adapter and give them titles (like you're adding items to a list)
-    private void setupViewPager(ViewPager viewPager){
+    private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Categories(), "Категории");
         adapter.addFragment(new Tab2Favorites(), "Запазени");
