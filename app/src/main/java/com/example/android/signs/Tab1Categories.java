@@ -154,7 +154,7 @@ public class Tab1Categories extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Прехвърляне в Група А", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), GroupA.class);
+                Intent intent = new Intent(getActivity(), AllGroupASignsList.class);
                 startActivity(intent);
 
             }
