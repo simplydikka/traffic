@@ -24,12 +24,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AllGroupASignsList"
-            android:label="GroupASigns"
+            android:label="Група А"
             android:parentActivityName=".homeScreen"
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity android:name=".SingleCardGroupA"
-            android:label="Activity2"
+            android:label="Обратно към Група А"
             android:parentActivityName=".AllGroupASignsList"
             android:theme="@style/AppTheme.ActionBar">
 
