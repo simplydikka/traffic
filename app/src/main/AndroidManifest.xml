@@ -22,15 +22,19 @@
             android:name=".homeScreen"
             android:label="@string/title_activity_home_screen"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
         <activity
             android:name=".AllGroupASignsList"
             android:label="GroupASigns"
             android:parentActivityName=".homeScreen"
             android:theme="@style/AppTheme.ActionBar" />
 
+        <activity android:name=".SingleCardGroupA"
+            android:label="Activity2"
+            android:parentActivityName=".AllGroupASignsList"
+            android:theme="@style/AppTheme.ActionBar">
 
+
+        </activity>
     </application>
 
 </manifest>
