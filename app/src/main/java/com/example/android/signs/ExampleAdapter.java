@@ -9,15 +9,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
+public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> implements Filterable {
 
     private ArrayList<ExampleItem> mExampleList;
+    private List<ExampleItem> mExampleListFull;
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
@@ -58,7 +62,9 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     }
 
     public ExampleAdapter(ArrayList<ExampleItem> exampleList){
+
         mExampleList = exampleList;
+        mExampleListFull = new ArrayList<>(exampleList);
     }
     @NonNull
     @Override
@@ -81,4 +87,41 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     public int getItemCount() {
         return mExampleList.size();
     }
+
+
+    public Filter getFilter(){
+        return exampleFilter;
+    }
+
+    private Filter exampleFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<ExampleItem> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0){
+                filteredList.addAll(mExampleListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for(ExampleItem item : mExampleListFull){
+                    if (item.getTextTitle().toLowerCase().contains(filterPattern) || item.getmTextDescription().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            mExampleList.clear();
+            mExampleList.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
