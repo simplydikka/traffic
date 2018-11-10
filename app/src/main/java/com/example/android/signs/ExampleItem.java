@@ -35,16 +35,17 @@ public class ExampleItem implements Parcelable {
         }
     };
 
-    public int getImageResource(){
+    public int getImageResource() {
         return mImageResource;
     }
-     public String getTextTitle() {
-        return mTextTitle;
-     }
 
-     public String getmTextDescription(){
-         return mTextDescription;
-     }
+    public String getTextTitle() {
+        return mTextTitle;
+    }
+
+    public String getmTextDescription() {
+        return mTextDescription;
+    }
 
     @Override
     public int describeContents() {

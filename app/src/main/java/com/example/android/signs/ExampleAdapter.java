@@ -31,6 +31,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
+
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
         public ImageView mImageView;
         public TextView mTextTitle;
