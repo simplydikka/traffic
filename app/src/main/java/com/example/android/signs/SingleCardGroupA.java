@@ -20,15 +20,13 @@ public class SingleCardGroupA extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_card_groupa);
 
-        Intent intent = getIntent();
-
+        final Intent intent = getIntent();
         final int position = intent.getIntExtra("position", 0);
 
-
-//        ExampleItem exampleItem = intent.getParcelableExtra("Example Item");
         ExampleItem exampleItem = DataCollection
-                                    .getData(this)
-                                    .get(position);
+                .getData(this)
+                .get(position);
+
 
         int imageRes = exampleItem.getImageResource();
         String line1 = exampleItem.getTextTitle();
@@ -44,28 +42,96 @@ public class SingleCardGroupA extends AppCompatActivity {
         textView2.setText(line2);
 
         Button next = (Button) findViewById(R.id.next);
+        if(position == 0) {
+            next.setText("КЪМ A2");
+        }
+        if(position == 1){
+            next.setText("КЪМ A3");
+        }
+        if(position == 2){
+            next.setText("КЪМ A4");
+        }
+        if(position == 3){
+            next.setText("КЪМ A5");
+        }
+        if(position == 4){
+            next.setText("КЪМ A6");
+        }
+        if(position == 5){
+            next.setText("КЪМ A7");
+        }
+        if(position == 6){
+            next.setText("КЪМ A8");
+        }
+        if(position == 7){
+            next.setText("КЪМ A9");
+        }if(position == 8){
+            next.setText("КЪМ A10");
+        }
+        if(position == 9) {
+            next.setText("КЪМ A1");
+        }
+
         Button previous = (Button) findViewById(R.id.previous);
+        if(position == 0) {
+            previous.setText("КЪМ A10");
+        }
+        if(position == 1){
+            previous.setText("КЪМ A1");
+        }
+        if(position == 2){
+            previous.setText("КЪМ A2");
+        }
+        if(position == 3){
+            previous.setText("КЪМ A3");
+        }
+        if(position == 4){
+            previous.setText("КЪМ A4");
+        }
+        if(position == 5){
+            previous.setText("КЪМ A5");
+        }
+        if(position == 6){
+            previous.setText("КЪМ A6");
+        }
+        if(position == 7){
+            previous.setText("КЪМ A7");
+        }if(position == 8){
+            previous.setText("КЪМ A8");
+        }
+        if(position == 9) {
+            previous.setText("КЪМ A9");
+        }
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SingleCardGroupA.this, SingleCardGroupA.class);
-                intent.putExtra("position", position+1);
+                if (position <= 8) {
+                    intent.putExtra("position", position + 1);
+                    startActivity(intent);
+                } else
+                    intent.putExtra("position", 0);
                 startActivity(intent);
-                finish();
+
             }
+
         });
 
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SingleCardGroupA.this, SingleCardGroupA.class);
-                intent.putExtra("position", position-1);
+                if (position >= 1) {
+                    intent.putExtra("position", position - 1);
+                    startActivity(intent);
+                } else
+                    intent.putExtra("position", 9);
                 startActivity(intent);
-                finish();
+
             }
+
         });
     }
-
 
 }

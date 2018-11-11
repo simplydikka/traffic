@@ -35,6 +35,7 @@ public class ExampleItem implements Parcelable {
         }
     };
 
+
     public int getImageResource() {
         return mImageResource;
     }
