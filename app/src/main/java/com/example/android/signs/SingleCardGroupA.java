@@ -1,6 +1,7 @@
 package com.example.android.signs;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,14 +14,21 @@ public class SingleCardGroupA extends AppCompatActivity {
     Button next;
     Button previous;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_card_groupa);
 
-
         Intent intent = getIntent();
-        ExampleItem exampleItem = intent.getParcelableExtra("Example Item");
+
+        final int position = intent.getIntExtra("position", 0);
+
+
+//        ExampleItem exampleItem = intent.getParcelableExtra("Example Item");
+        ExampleItem exampleItem = DataCollection
+                                    .getData(this)
+                                    .get(position);
 
         int imageRes = exampleItem.getImageResource();
         String line1 = exampleItem.getTextTitle();
@@ -37,6 +45,26 @@ public class SingleCardGroupA extends AppCompatActivity {
 
         Button next = (Button) findViewById(R.id.next);
         Button previous = (Button) findViewById(R.id.previous);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SingleCardGroupA.this, SingleCardGroupA.class);
+                intent.putExtra("position", position+1);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SingleCardGroupA.this, SingleCardGroupA.class);
+                intent.putExtra("position", position-1);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 

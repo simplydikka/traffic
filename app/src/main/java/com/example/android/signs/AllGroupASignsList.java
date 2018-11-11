@@ -34,18 +34,19 @@ public class AllGroupASignsList extends AppCompatActivity {
 
     public void createExampleList() {
 
-        mExampleList = new ArrayList<>();
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A1_title), getString(R.string.A1_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A2_title), getString(R.string.A2_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A3_title), getString(R.string.A3_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A4_title), getString(R.string.A4_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A5_title), getString(R.string.A5_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A6_title), getString(R.string.A6_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A7_title), getString(R.string.A7_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A8_title), getString(R.string.A8_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A9_title), getString(R.string.A9_description)));
-        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A10_title), getString(R.string.A10_description)));
+//        mExampleList = new ArrayList<>();
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A1_title), getString(R.string.A1_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A2_title), getString(R.string.A2_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A3_title), getString(R.string.A3_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A4_title), getString(R.string.A4_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A5_title), getString(R.string.A5_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A6_title), getString(R.string.A6_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A7_title), getString(R.string.A7_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A8_title), getString(R.string.A8_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A9_title), getString(R.string.A9_description)));
+//        mExampleList.add(new ExampleItem(R.drawable.imageplaceholder, getString(R.string.A10_title), getString(R.string.A10_description)));
 
+        mExampleList = DataCollection.getData(this);
     }
 
     public void buildRecyclerView() {
@@ -58,12 +59,21 @@ public class AllGroupASignsList extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+//        mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+//            Intent intent = new Intent(AllGroupASignsList.this, SingleCardGroupA.class);
+//            intent.putExtra("Example Item", mExampleList.get(position));
+//            startActivity(intent);
+//            }
+//        });
+
         mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-            Intent intent = new Intent(AllGroupASignsList.this, SingleCardGroupA.class);
-            intent.putExtra("Example Item", mExampleList.get(position));
-            startActivity(intent);
+                Intent intent = new Intent(AllGroupASignsList.this, SingleCardGroupA.class);
+                intent.putExtra("position", position);
+                startActivity(intent);
             }
         });
     }
